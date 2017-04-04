@@ -30,6 +30,20 @@
 /*****************************************************************************
 **  Constants and data types
 *****************************************************************************/
+#define HFP_VERSION_1_1         0x0101
+#define HFP_VERSION_1_5         0x0105
+#define HFP_VERSION_1_6         0x0106
+#define HFP_VERSION_1_7         0x0107
+
+#define HSP_VERSION_1_0         0x0100
+#define HSP_VERSION_1_2         0x0102
+
+/* Note, if you change the default version here, please also change the one in
+ * bta_hs_api.h, they are meant to be the same.
+ */
+#ifndef BTA_HFP_VERSION
+#define BTA_HFP_VERSION         HFP_VERSION_1_7
+#endif
 
 /* AG feature masks */
 #define BTA_AG_FEAT_3WAY    0x00000001   /* Three-way calling */
@@ -45,6 +59,13 @@
 #define BTA_AG_FEAT_HFIND   0x00000400   /* HF indicators */
 #define BTA_AG_FEAT_S4      0x00000800   /* ESCO S4 link setting */
 #define BTA_AG_FEAT_VOIP    0x00001000   /* VoIP call */
+
+#define HFP_1_6_FEAT_MASK   0x000003FF   /* Valid feature bit mask for HFP 1.6 (and below) */
+
+/* HFP 1.7+ */
+#define BTA_AG_FEAT_HF_IND  0x00002000   /* HF Indicators */
+#define BTA_AG_FEAT_ESCO    0x00004000   /* eSCO S4 (and T2) setting supported */
+
 
 /* Proprietary features: using 31 ~ 16 bits */
 #define BTA_AG_FEAT_BTRH    0x00010000   /* CCAP incoming call hold */
